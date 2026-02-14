@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Agbo | Robotics & Automation Engineer</title>
+    <meta name="description" content="Graduate Mechanical Engineer specializing in intelligent automation systems, robotics, and hardware-software integration.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-text">
+                <span>M</span><span>I</span><span>C</span><span>H</span><span>A</span><span>E</span><span>L</span>
+                <span>&nbsp;</span>
+                <span>A</span><span>G</span><span>B</span><span>O</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor">
+        <span class="cursor-text"></span>
+    </div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="logo" data-magnetic>
+            <span class="logo-text">MA</span>
+            <span class="logo-dot"></span>
+        </a>
+        <div class="nav-links">
+            <a href="#work" class="nav-link" data-magnetic data-cursor="View Projects">Work</a>
+            <a href="#github" class="nav-link" data-magnetic data-cursor="See Code">GitHub</a>
+            <a href="#about" class="nav-link" data-magnetic data-cursor="Learn More">About</a>
+            <a href="#contact" class="nav-link" data-magnetic data-cursor="Get in Touch">Contact</a>
+        </div>
+        <button class="theme-btn" id="theme-toggle" data-magnetic data-cursor="Toggle Theme">
+            <span class="theme-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-label">
+                <span class="status-dot"></span>
+                <span class="typing-text" data-text="Available for opportunities"></span>
+            </div>
+            
+            <h1 class="hero-title">
+                <div class="title-line">
+                    <span class="char-wrap"><span class="char">I</span></span>
+                    <span class="char-wrap"><span class="char">build</span></span>
+                    <span class="char-wrap"><span class="char">intelligent</span></span>
+                </div>
+                <div class="title-line">
+                    <span class="char-wrap"><span class="char">automation</span></span>
+                    <span class="char-wrap highlight"><span class="char">systems</span></span>
+                </div>
+            </h1>
+            
+            <p class="hero-tagline">
+                <span class="tagline-word">Robotics</span>
+                <span class="tagline-separator">&</span>
+                <span class="tagline-word">Automation</span>
+                <span class="tagline-word">Engineer</span>
+            </p>
+            
+            <div class="hero-cta">
+                <a href="#work" class="btn btn-primary" data-magnetic>
+                    <span>View My Work</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-ghost" data-magnetic>
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="orbit">
+                <div class="orbit-ring ring-1"></div>
+                <div class="orbit-ring ring-2"></div>
+                <div class="orbit-ring ring-3"></div>
+                <div class="orbit-item item-1" data-tilt>🤖</div>
+                <div class="orbit-item item-2" data-tilt>⚙️</div>
+                <div class="orbit-item item-3" data-tilt>🧠</div>
+                <div class="orbit-item item-4" data-tilt>📐</div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span class="marquee-item">Robot Programming <span class="dot">●</span></span>
+            <span class="marquee-item">Computer Vision <span class="dot">●</span></span>
+            <span class="marquee-item">Control Systems <span class="dot">●</span></span>
+            <span class="marquee-item">Deep Learning <span class="dot">●</span></span>
+            <span class="marquee-item">CAD/CAM <span class="dot">●</span></span>
+            <span class="marquee-item">Simulation <span class="dot">●</span></span>
+            <span class="marquee-item">Robot Programming <span class="dot">●</span></span>
+            <span class="marquee-item">Computer Vision <span class="dot">●</span></span>
+            <span class="marquee-item">Control Systems <span class="dot">●</span></span>
+            <span class="marquee-item">Deep Learning <span class="dot">●</span></span>
+            <span class="marquee-item">CAD/CAM <span class="dot">●</span></span>
+            <span class="marquee-item">Simulation <span class="dot">●</span></span>
+        </div>
+    </div>
+
+    <!-- Work Section -->
+    <section class="work" id="work">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">01 / Projects</span>
+            </div>
+            <h2 class="section-title split-text">Selected Work</h2>
+            <p class="section-desc">From simulation to production floor — projects that solve real problems.</p>
+        </div>
+
+        <div class="projects-container">
+            <!-- Featured Project -->
+            <article class="project-featured" data-cursor="Play Video">
+                <div class="project-media">
+                    <video class="project-video" muted loop playsinline>
+                        <source src="RobotStudio Simulation/RobotStudio 3-22.mp4" type="video/mp4">
+                    </video>
+                    <div class="project-media-overlay">
+                        <div class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-meta">
+                        <span class="meta-year">2024</span>
+                        <span class="meta-divider">/</span>
+                        <span class="meta-type">Simulation</span>
+                    </div>
+                    <h3 class="project-title">RobotStudio Multi-Robot Cell</h3>
+                    <p class="project-desc">Virtual commissioning of a multi-robot assembly cell in ABB RobotStudio. Path planning, collision detection, and cycle time optimization — all tested virtually before physical deployment.</p>
+                    <div class="project-tech">
+                        <span>ABB</span>
+                        <span>RobotStudio</span>
+                        <span>RAPID</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project Cards -->
+            <div class="projects-grid">
+                <article class="project-card" data-cursor="View Project">
+                    <div class="card-content">
+                        <div class="card-icon">👁️</div>
+                        <h4 class="card-title">AI Vision Classification</h4>
+                        <p class="card-desc">Deep learning vision system for industrial part classification. Benchmarked against Cognex VisionPro.</p>
+                        <div class="card-footer">
+                            <span class="card-tag">MSc Dissertation</span>
+                            <span class="card-year">2025</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">
+                        <p>Transfer learning, hyperparameter optimisation, integration with robotic arms for pick & place automation.</p>
+                        <div class="card-tech">Python • TensorFlow • HPC</div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-cursor="View Project">
+                    <div class="card-content">
+                        <div class="card-icon">🦾</div>
+                        <h4 class="card-title">IRB 120 Motion Planning</h4>
+                        <p class="card-desc">Forward and inverse kinematics for ABB IRB 120 manipulator in MATLAB.</p>
+                        <div class="card-footer">
+                            <span class="card-tag">BEng Final Project</span>
+                            <span class="card-year">2024</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">
+                        <p>Solved the regulation problem to achieve precise point-to-point motion control.</p>
+                        <div class="card-tech">MATLAB • Robotics • Kinematics</div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-cursor="View Project">
+                    <div class="card-content">
+                        <div class="card-icon">📊</div>
+                        <h4 class="card-title">Experimental Modal Analysis</h4>
+                        <p class="card-desc">Modal analysis on structural components with FEA model validation.</p>
+                        <div class="card-footer">
+                            <span class="card-tag">University Project</span>
+                            <span class="card-year">2024</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">
+                        <p>Created Abaqus FEA models and performed model correlation to validate experimental results.</p>
+                        <div class="card-tech">MATLAB • Abaqus • FEA</div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-cursor="View Project">
+                    <div class="card-content">
+                        <div class="card-icon">🔬</div>
+                        <h4 class="card-title">Digital Metrology Thread</h4>
+                        <p class="card-desc">Digital thread between product specifications and metrology inspection.</p>
+                        <div class="card-footer">
+                            <span class="card-tag">Industry Internship</span>
+                            <span class="card-year">2024</span>
+                        </div>
+                    </div>
+                    <div class="card-hover">
+                        <p>3D point cloud alignment and dimensional analysis using PolyWorks and SolidWorks.</p>
+                        <div class="card-tech">PolyWorks • SolidWorks • 3D Scanning</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github" id="github">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">02 / Code</span>
+            </div>
+            <h2 class="section-title split-text">GitHub Projects</h2>
+            <p class="section-desc">Open source contributions and personal experiments.</p>
+        </div>
+
+        <div class="github-container">
+            <div class="github-profile">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="profile-name">@mykael02</h3>
+                    <p class="profile-bio">Robotics & Automation enthusiast. Building intelligent systems.</p>
+                    <a href="https://github.com/mykael02" target="_blank" class="profile-link" data-magnetic>
+                        <span>View Profile</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="github-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="13">0</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="0">0</span>
+                        <span class="stat-label">Stars</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="repo-grid" id="repo-grid" data-github-user="mykael02" data-repo-limit="6">
+                <a href="https://github.com/mykael02/car-parts-detection" target="_blank" class="repo-card" data-cursor="View Repo">
+                    <div class="repo-header">
+                        <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <h4 class="repo-name">car-parts-detection</h4>
+                    <p class="repo-desc">Computer vision model for detecting and classifying automotive parts</p>
+                    <div class="repo-footer">
+                        <div class="repo-lang">
+                            <span class="lang-dot jupyter"></span>
+                            <span>Jupyter Notebook</span>
+                        </div>
+                        <div class="repo-stats">
+                            <span>🍴 1</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mykael02/Fizz-Vision-AI-RAG" target="_blank" class="repo-card" data-cursor="View Repo">
+                    <div class="repo-header">
+                        <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <h4 class="repo-name">Fizz-Vision-AI-RAG</h4>
+                    <p class="repo-desc">AI-powered vision system with Retrieval-Augmented Generation</p>
+                    <div class="repo-footer">
+                        <div class="repo-lang">
+                            <span class="lang-dot html"></span>
+                            <span>HTML</span>
+                        </div>
+                        <div class="repo-stats">
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mykael02/Scan-drive" target="_blank" class="repo-card" data-cursor="View Repo">
+                    <div class="repo-header">
+                        <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <h4 class="repo-name">Scan-drive</h4>
+                    <p class="repo-desc">Python utility for scanning and organizing folder structures</p>
+                    <div class="repo-footer">
+                        <div class="repo-lang">
+                            <span class="lang-dot python"></span>
+                            <span>Python</span>
+                        </div>
+                        <div class="repo-stats">
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mykael02/supabase-uploader" target="_blank" class="repo-card" data-cursor="View Repo">
+                    <div class="repo-header">
+                        <svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <h4 class="repo-name">supabase-uploader</h4>
+                    <p class="repo-desc">File upload utility for Supabase storage integration</p>
+                    <div class="repo-footer">
+                        <div class="repo-lang">
+                            <span class="lang-dot javascript"></span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="repo-stats">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">03 / Skills</span>
+            </div>
+            <h2 class="section-title split-text">Tech Stack</h2>
+        </div>
+
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <span class="category-icon">🤖</span>
+                    Robotics & Simulation
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item" data-skill="95">
+                        <span class="skill-name">RobotStudio</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="90">
+                        <span class="skill-name">MATLAB</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="85">
+                        <span class="skill-name">Simulink</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <span class="category-icon">💻</span>
+                    Programming
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item" data-skill="80">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="75">
+                        <span class="skill-name">TensorFlow</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="70">
+                        <span class="skill-name">Stateflow</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <span class="category-icon">📐</span>
+                    CAD/CAE
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item" data-skill="90">
+                        <span class="skill-name">SolidWorks</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="85">
+                        <span class="skill-name">CATIA V5</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="80">
+                        <span class="skill-name">ANSYS / Abaqus</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="category-title">
+                    <span class="category-icon">🔧</span>
+                    Other Tools
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item" data-skill="85">
+                        <span class="skill-name">PolyWorks</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="75">
+                        <span class="skill-name">Siemens NX</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                    <div class="skill-item" data-skill="70">
+                        <span class="skill-name">Powermill</span>
+                        <div class="skill-bar"><div class="skill-fill"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">04 / About</span>
+            </div>
+            <h2 class="section-title split-text">Who I Am</h2>
+        </div>
+
+        <div class="about-container">
+            <div class="about-image">
+                <div class="image-frame">
+                    <div class="image-placeholder">
+                        <span>📸</span>
+                        <small>Your photo</small>
+                    </div>
+                    <div class="image-border"></div>
+                </div>
+                <div class="image-decoration">
+                    <span class="deco-line line-1"></span>
+                    <span class="deco-line line-2"></span>
+                    <span class="deco-dot dot-1"></span>
+                    <span class="deco-dot dot-2"></span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">I'm a Mechanical Engineer with a passion for intelligent automation systems and making hardware and software work together seamlessly.</p>
+                    <p>Currently completing my MSc in Control, Automation and Artificial Intelligence at Coventry University, building on my BEng in Mechanical Engineering. My focus? Bringing robotics and AI into real-world manufacturing environments.</p>
+                    <p>From programming IRB 120 manipulators in MATLAB to developing AI vision systems that compete with industry tools like Cognex VisionPro, I love the challenge of creating systems that actually work on the factory floor.</p>
+                </div>
+
+                <div class="about-info">
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Coventry, UK</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Education</span>
+                        <span class="info-value">MSc + BEng</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Focus</span>
+                        <span class="info-value">Robotics & AI</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Member</span>
+                        <span class="info-value">IMechE</span>
+                    </div>
+                </div>
+
+                <a href="CV_Michael_Agbo.pdf" class="btn btn-primary" download data-magnetic>
+                    <span>Download CV</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-section">
+            <h3 class="timeline-heading">Experience & Education</h3>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-year">2025</span>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="card-type education">Education</span>
+                        <h4>MSc Control, Automation & AI</h4>
+                        <p>Coventry University</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-year">2024</span>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="card-type work">Internship</span>
+                        <h4>Metrology & Research Intern</h4>
+                        <p>Institute of Advanced Manufacturing and Engineering</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-year">2024</span>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="card-type work">Internship</span>
+                        <h4>Design Research Intern</h4>
+                        <p>Centre for Clean Growth & Future Mobility</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker">
+                        <span class="marker-dot"></span>
+                        <span class="marker-year">2024</span>
+                    </div>
+                    <div class="timeline-card">
+                        <span class="card-type education">Education</span>
+                        <h4>BEng Mechanical Engineering</h4>
+                        <p>Coventry University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-bg">
+            <div class="contact-gradient"></div>
+        </div>
+        
+        <div class="contact-content">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">05 / Contact</span>
+            </div>
+            
+            <h2 class="contact-title split-text">Let's build something</h2>
+            <p class="contact-subtitle">Looking for opportunities in robotics and automation. Got a role? Let's talk.</p>
+            
+            <a href="mailto:apochibishop@gmail.com" class="contact-email" data-magnetic data-cursor="Send Email">
+                <span class="email-text">apochibishop@gmail.com</span>
+                <span class="email-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </a>
+
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/michael-a-agbo" target="_blank" class="social-btn" data-magnetic>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/mykael02" target="_blank" class="social-btn" data-magnetic>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="tel:07879132448" class="social-btn" data-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span>Call</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="footer-logo">MA</span>
+                <span class="footer-copy">© 2025 Michael Agbo</span>
+            </div>
+            <div class="footer-right">
+                <span>Built with passion for automation</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
